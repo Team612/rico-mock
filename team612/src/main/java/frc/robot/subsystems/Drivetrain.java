@@ -1,6 +1,8 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Talon;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.RobotMap;
@@ -11,26 +13,18 @@ public class Drivetrain extends Subsystem {
 
     // TODO: Change back to WPI_TalonSRX
 
-    private Talon talon_FL = new Talon(RobotMap.TALON_PORT_FL);
-    private Talon talon_FR = new Talon(RobotMap.TALON_PORT_FR);
-    private Talon talon_BL = new Talon(RobotMap.TALON_PORT_BL);
-    private Talon talon_BR = new Talon(RobotMap.TALON_PORT_BR);
+    private WPI_TalonSRX talon_FL = new WPI_TalonSRX(RobotMap.TALON_PORT_FL);
+    private WPI_TalonSRX talon_FR = new WPI_TalonSRX(RobotMap.TALON_PORT_FR);
+    private WPI_TalonSRX talon_BL = new WPI_TalonSRX(RobotMap.TALON_PORT_BL);
+    private WPI_TalonSRX talon_BR = new WPI_TalonSRX(RobotMap.TALON_PORT_BR);
 
     private MecanumDrive drivetrain;
 
     public Drivetrain() {
-
-        /*
-        talon_FR.setNeutralMode(NeutralMode.Brake);
-        talon_FL.setNeutralMode(NeutralMode.Brake);
-        talon_BR.setNeutralMode(NeutralMode.Brake);
-        talon_BL.setNeutralMode(NeutralMode.Brake);
-        */
-
         drivetrain = new MecanumDrive(talon_FL, talon_BL, talon_FR, talon_BR);
     }
 
-    public Talon getTalon(int num){
+    public WPI_TalonSRX getTalon(int num){
         switch(num) {
             case 1:
                 return talon_FL;
@@ -48,8 +42,13 @@ public class Drivetrain extends Subsystem {
         return drivetrain;
     }
     public void initDefaultCommand() {
+
+        talon_FR.setNeutralMode(NeutralMode.Brake);
+        talon_FL.setNeutralMode(NeutralMode.Brake);
+        talon_BR.setNeutralMode(NeutralMode.Brake);
+        talon_BL.setNeutralMode(NeutralMode.Brake);
+
         setDefaultCommand(new DefaultDrive());
-        // .setNeutralMode(NeutralMode.Brake); for each Talon
     }
 
 }

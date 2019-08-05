@@ -37,9 +37,9 @@ public class DefaultDrive extends Command {
 
   protected void getInput() {  // Fetch the Joystick values, apply inversion if neccesary
 
-    direction_y = OI.driver.getY(Hand.kLeft);
-    direction_x = OI.driver.getX(Hand.kLeft);
-    rotation = OI.driver.getX(Hand.kRight);
+    direction_y = OI.driver.getRawAxis(1);
+    direction_x = OI.driver.getRawAxis(0);
+    rotation = OI.driver.getRawAxis(2);
 
   }
 
@@ -72,13 +72,18 @@ public class DefaultDrive extends Command {
 
   @Override
   protected void execute() {
-
+      System.out.println(OI.driver.getName());
       getInput(); // Fetches Joystick values
       doDead(); // Sets the DEADZONE value
       toPolar(); // Does calculations with Joystick values to drivetrain
 
       Robot.drivetrain.getDriveTrain().drivePolar(magnitude, angle, rotation); // Pass the calculated drive data into the drivetrain
     
+      System.out.println(magnitude);
+      System.out.println(angle);
+      System.out.println(rotation);
+      System.out.println("------");
+
   }
 
   @Override
