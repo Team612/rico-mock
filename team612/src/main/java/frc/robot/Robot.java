@@ -6,11 +6,13 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.ServoCamera;
 
 public class Robot extends TimedRobot 
 {
 
     public static final Drivetrain drivetrain = new Drivetrain();
+    public static final ServoCamera driver_servo = new ServoCamera();
 
     public static OI oi;
 
