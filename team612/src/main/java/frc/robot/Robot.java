@@ -12,6 +12,8 @@ public class Robot extends TimedRobot
 
     public static final Drivetrain drivetrain = new Drivetrain();
 
+    public static Intake intake = new Intake();
+    
     public static OI oi;
 
     private Command autonomousCommand;
