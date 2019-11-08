@@ -7,7 +7,11 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.OI;
+import frc.robot.Robot;
+import frc.robot.subsystems.TankDrive;
 
 public class DefaultTank extends Command {
   public DefaultTank() {
@@ -23,6 +27,11 @@ public class DefaultTank extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    System.out.println("Running Tank Drive");
+    Robot.tank.talon_FL.set( OI.driver.getY(Hand.kLeft));
+    Robot.tank.talon_BL.set( OI.driver.getY(Hand.kLeft));
+    Robot.tank.talon_FR.set( OI.driver.getY(Hand.kRight));
+    Robot.tank.talon_FR.set( OI.driver.getY(Hand.kRight));
   }
 
   // Make this return true when this Command no longer needs to run execute()

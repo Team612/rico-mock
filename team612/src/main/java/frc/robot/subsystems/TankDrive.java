@@ -17,7 +17,7 @@ import frc.robot.commands.DefaultTank;
  * Add your docs here.
  */
 public class TankDrive extends Subsystem {
-  System.out.println("Hi");
+
   public WPI_TalonSRX talon_FL = new WPI_TalonSRX(RobotMap.TANK_PORT_FL);
   public WPI_TalonSRX talon_FR = new WPI_TalonSRX(RobotMap.TANK_PORT_FR);
   public WPI_TalonSRX talon_BL = new WPI_TalonSRX(RobotMap.TANK_PORT_BL);
