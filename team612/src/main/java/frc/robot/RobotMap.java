@@ -12,4 +12,7 @@ public class RobotMap
     public static final int DRIVER_PORT = 0;
     public static final int GUNNER_PORT = 1;
 
+    //Servo ports
+    public static int SERVO_CAMERA_PORT = 9;
+
 }

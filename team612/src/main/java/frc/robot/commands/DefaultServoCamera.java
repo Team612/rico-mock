@@ -14,6 +14,7 @@ import frc.robot.subsystems.ServoCamera;
 
 public class DefaultServoCamera extends Command {
   public static boolean isPressed;
+  public static int DirectionCamera;
   public DefaultServoCamera() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.driver_servo);
@@ -29,18 +30,24 @@ public class DefaultServoCamera extends Command {
   @Override
   protected void execute() {
     System.out.println("Running Servo Code");
-
     if(OI.driver_button_X.get()){
       isPressed = !isPressed;
     }
 
-    if(isPressed == true){
-      ServoCamera.servo_camera.setAngle(180);
+    if(isPressed){
+      ServoCamera.servo_camera.setAngle(0);
+      System.out.println(ServoCamera.servo_camera.getAngle());
+
+      DirectionCamera = 1;
     }
 
    else{
-      ServoCamera.servo_camera.setAngle(0);
+      ServoCamera.servo_camera.setAngle(180);
+      System.out.println(ServoCamera.servo_camera.getAngle());
+      DirectionCamera = -1;
+      
     }
+
   }
 
   // Make this return true when this Command no longer needs to run execute()

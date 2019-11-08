@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 public class DefaultDrive extends Command {
 
-  private final double DEADZONE = 0.2;  // Define controller deadzone
+  private final double DEADZONE = 0.3;  // Define controller deadzone
 
   // Variables for mechanum drive
   public static double magnitude;  // The power the of the drive system
@@ -37,8 +37,8 @@ public class DefaultDrive extends Command {
 
   protected void getInput() {  // Fetch the Joystick values, apply inversion if neccesary
 
-    direction_y = OI.driver.getRawAxis(1);
-    direction_x = OI.driver.getRawAxis(0);
+    direction_y = OI.driver.getRawAxis(1) * DefaultServoCamera.DirectionCamera;
+    direction_x = OI.driver.getRawAxis(0) * DefaultServoCamera.DirectionCamera;
     rotation = OI.driver.getRawAxis(2);
 
   }
