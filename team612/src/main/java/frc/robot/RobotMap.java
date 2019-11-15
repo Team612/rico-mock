@@ -11,5 +11,8 @@ public class RobotMap
     // Controller ports
     public static final int DRIVER_PORT = 0;
     public static final int GUNNER_PORT = 1;
-
+	public static final String Hatch = null;
+    public static int hatch_talon = 9;
+	public static int hatch_servo = 6;
+    
 }
