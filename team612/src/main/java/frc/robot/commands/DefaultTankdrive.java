@@ -16,7 +16,7 @@ public class DefaultTankdrive extends Command {
   double SPEED = 0.5;
   public DefaultTankdrive() {
     // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+    requires(Robot.tankdrive);
   }
 
   // Called just before this Command runs the first time
