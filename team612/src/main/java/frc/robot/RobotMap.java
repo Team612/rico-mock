@@ -12,7 +12,7 @@ public class RobotMap
     public static int TANK_PORT_BL = 7;
     public static int TANK_PORT_BR = 2;
     public static int CLIMB_PORT_BK = 8;
-    public static int CLIMB_PORT_FR = 9;
+    public static int CLIMB_PORT_FR = 4;
 
 
     // Controller ports
