@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DefaultArm;
 import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Tankdrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,6 +25,7 @@ import frc.robot.subsystems.Arm;
  */
 public class Robot extends TimedRobot {
   public static Arm arm = new Arm();
+  public static Tankdrive tankdrive = new Tankdrive();
   public static OI m_oi;
 
   Command m_autonomousCommand;

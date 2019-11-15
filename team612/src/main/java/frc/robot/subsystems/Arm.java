@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Arm extends Subsystem {
  // Put methods for controlling this subsystem
  // here. Call these from Commands.
- public WPI_Talo arm_Talon = new Talon(0);
+ public Talon arm_Talon = new Talon(0);
   
  
  
