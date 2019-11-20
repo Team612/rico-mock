@@ -7,7 +7,11 @@
  
 package frc.robot.subsystems;
  
+import frc.robot.RobotMap;
 import frc.robot.commands.DefaultArm;
+
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
  
@@ -17,7 +21,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Arm extends Subsystem {
  // Put methods for controlling this subsystem
  // here. Call these from Commands.
- public Talon arm_Talon = new Talon(0);
+ public WPI_TalonSRX arm_Talon = new WPI_TalonSRX(RobotMap.ArmPort);
   
  
  
