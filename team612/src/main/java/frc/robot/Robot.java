@@ -1,19 +1,22 @@
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-
-import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ServoCamera;
 
 public class Robot extends TimedRobot 
 {
 
-    public static final Drivetrain drivetrain = new Drivetrain();
     public static final ServoCamera driver_servo = new ServoCamera();
+    public static final Arm arm = new Arm();
 
+    public static final DriveTrain drive_train = new DriveTrain();
     public static OI oi;
 
     private Command autonomousCommand;

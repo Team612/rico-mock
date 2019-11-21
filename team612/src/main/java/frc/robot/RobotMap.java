@@ -8,11 +8,15 @@ public class RobotMap
     public static int TALON_PORT_BL = 7;
     public static int TALON_PORT_BR = 2;
 
+    //Arm Talons
+    public static int ARM_TALLON = 5;
+
     // Controller ports
     public static final int DRIVER_PORT = 0;
     public static final int GUNNER_PORT = 1;
 
     //Servo ports
     public static int SERVO_CAMERA_PORT = 9;
+
 
 }

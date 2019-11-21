@@ -7,32 +7,36 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.subsystems.Arm;
 
-public class DefaultDrive extends Command {
-  public DefaultDrive() {
+public class DefaultArm extends Command {
+  public static double ArmSpeed = 0.75;
+  public DefaultArm() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.drive_train);
+    requires(Robot.arm);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drive_train.FL.set(OI.driver.getY(Hand.kLeft));
-    Robot.drive_train.BL.set(OI.driver.getY(Hand.kLeft));
-
-    Robot.drive_train.FR.set(OI.driver.getY(Hand.kRight));
-    Robot.drive_train.BR.set(OI.driver.getY(Hand.kRight));
-
+    if(OI.driver_button_LB.get()){
+      Robot.arm.arm_talon.set(ArmSpeed);
+    }
+    else if(OI.driver_button_RB.get()){
+        Robot.arm.arm_talon.set(ArmSpeed * -1);
+    }
+    else{
+      Robot.arm.arm_talon.set(0);
+    }
+  
   }
 
   // Make this return true when this Command no longer needs to run execute()
