@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -23,6 +24,8 @@ public class Intake extends Subsystem {
   
   @Override
   public void initDefaultCommand() {
+    talonIntake.setNeutralMode(NeutralMode.Brake);
+
     setDefaultCommand(new DefaultIntake());
   }
 
