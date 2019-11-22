@@ -13,6 +13,12 @@ import frc.robot.OI;
 import frc.robot.Robot;
 
 public class DefaultDrive extends Command {
+  public double LeftX;
+  public double LeftY;
+  public double RightX;
+
+  public double DeadZone = 0.25;
+
   public DefaultDrive() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.drive_train);
@@ -34,7 +40,21 @@ public class DefaultDrive extends Command {
     Robot.drive_train.FR.set(OI.driver.getY(Hand.kRight));
     Robot.drive_train.BR.set(OI.driver.getY(Hand.kRight));
     */
-    Robot.drive_train.mecanumDrive.driveCartesian(OI.driver.getY(Hand.kLeft), OI.driver.getY(Hand.kRight), OI.driver.getX(Hand.kRight));
+    LeftX = OI.driver.getX(Hand.kLeft);
+    LeftY = OI.driver.getY(Hand.kLeft);
+    RightX = OI.driver.getX(Hand.kRight);
+
+    if(Math.abs(LeftX) < DeadZone){
+      LeftX = 0;
+    }
+    if(Math.abs(LeftY) < DeadZone){
+      LeftY = 0;
+    }
+    if(Math.abs(RightX) < DeadZone){
+      RightX = 0;
+    }
+
+    Robot.drive_train.mecanumDrive.driveCartesian(LeftX, LeftY, RightX);
 
   }
 
