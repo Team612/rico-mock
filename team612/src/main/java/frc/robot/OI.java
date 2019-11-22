@@ -2,6 +2,7 @@ package frc.robot;
  
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.DefaultCamera;
  
 public class OI
 {
@@ -32,7 +33,7 @@ public class OI
    
  
    public OI() {
- 
+      driver_button_A.whenPressed(new DefaultCamera());
    }
  
 }
