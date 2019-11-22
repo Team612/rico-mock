@@ -7,17 +7,23 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
 
 public class DefaultDrive extends Command {
+  //Cartesian plane movement stuff
   public double LeftX;
   public double LeftY;
   public double RightX;
 
+  //Dead Zone for for side to side movement
   public double DeadZone = 0.25;
+
+  //Distance for Ultrasonic sensor 
+  public double distance = Robot.drive_train.ultra_sonic.getRangeInches();
 
   public DefaultDrive() {
     // Use requires() here to declare subsystem dependencies
@@ -54,8 +60,18 @@ public class DefaultDrive extends Command {
       RightX = 0;
     }
 
-    Robot.drive_train.mecanumDrive.driveCartesian(LeftX, LeftY, RightX);
+    if(distance < 4){
+      
+      if (LeftY < 0) {
+        Robot.drive_train.mecanumDrive.driveCartesian(LeftX, LeftY, RightX);
+      } else {
+        Robot.drive_train.mecanumDrive.driveCartesian(0, 0, 0);
+      }
 
+
+    } else {
+      Robot.drive_train.mecanumDrive.driveCartesian(LeftX, LeftY, RightX);
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

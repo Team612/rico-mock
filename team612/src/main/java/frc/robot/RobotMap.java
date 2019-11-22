@@ -18,5 +18,9 @@ public class RobotMap
     //Servo ports
     public static int SERVO_CAMERA_PORT = 9;
 
+    //Ultrasound Channel Ports
+    public static int PING_CHANNEL_PORT = 10;
+    public static int ECHO_CHANNEL_PORT = 12;
+
 
 }

@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.RobotMap;
@@ -24,6 +25,11 @@ public class DriveTrain extends Subsystem {
   public WPI_TalonSRX FR = new WPI_TalonSRX(RobotMap.TALON_PORT_FR);
   public WPI_TalonSRX BL = new WPI_TalonSRX(RobotMap.TALON_PORT_BL);
   public WPI_TalonSRX BR = new WPI_TalonSRX(RobotMap.TALON_PORT_BR);
+
+  //Ultrasonic Sensor 
+  public Ultrasonic ultra_sonic = new Ultrasonic(RobotMap.PING_CHANNEL_PORT, RobotMap.ECHO_CHANNEL_PORT);
+
+
   public MecanumDrive mecanumDrive; 
   
   public DriveTrain() {
