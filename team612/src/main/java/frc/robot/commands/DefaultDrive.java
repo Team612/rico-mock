@@ -27,11 +27,14 @@ public class DefaultDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    /*
     Robot.drive_train.FL.set(OI.driver.getY(Hand.kLeft));
     Robot.drive_train.BL.set(OI.driver.getY(Hand.kLeft));
 
     Robot.drive_train.FR.set(OI.driver.getY(Hand.kRight));
     Robot.drive_train.BR.set(OI.driver.getY(Hand.kRight));
+    */
+    Robot.drive_train.mecanumDrive.driveCartesian(OI.driver.getY(Hand.kLeft), OI.driver.getY(Hand.kRight), OI.driver.getX(Hand.kRight));
 
   }
 
