@@ -7,16 +7,12 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.OI;
-import frc.robot.Robot;
 
-public class DefaultTankdrive extends Command {
-  double SPEED = 0.5;
-  public DefaultTankdrive() {
+public class DefaultCamera extends Command {
+  public DefaultCamera() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.tankdrive);
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -27,17 +23,6 @@ public class DefaultTankdrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.arm.arm_Talon.set(OI.gunner.getY(Hand.kLeft) * SPEED);
-    
-
-    if((Math.abs(OI.driver.getY(Hand.kLeft)) > 0.1 )) {
-      Robot.tankdrive.talon_fl.set(OI.driver.getRawAxis(1) * SPEED);
-      Robot.tankdrive.talon_bl.set(OI.driver.getRawAxis(1) * SPEED);
-    }
-    if ((Math.abs(OI.driver.getRawAxis(5)) > 0.1 )) {
-      Robot.tankdrive.talon_fr.set(OI.driver.getRawAxis(5) * SPEED);
-      Robot.tankdrive.talon_br.set(OI.driver.getRawAxis(5) * SPEED);
-    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

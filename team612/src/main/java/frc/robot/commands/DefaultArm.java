@@ -14,8 +14,9 @@ import frc.robot.OI;
 import frc.robot.Robot;
  
 public class DefaultArm extends Command {
- private double SPEED = 0.5;
- 
+  
+  double SPEED = 1;
+
  public DefaultArm() {
    // Use requires() here to declare subsystem dependencies
    // eg. requires(chassis);
