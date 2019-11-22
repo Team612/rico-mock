@@ -14,6 +14,7 @@ import frc.robot.Robot;
 
 public class DefaultTankdrive extends Command {
   double SPEED = 0.5;
+  double deadzone=.1;
   public DefaultTankdrive() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.tankdrive);
@@ -29,12 +30,12 @@ public class DefaultTankdrive extends Command {
   protected void execute() {
     //Robot.arm.arm_Talon.set(OI.gunner.getY(Hand.kLeft) * SPEED);
     
-
-    if((Math.abs(OI.driver.getY(Hand.kLeft)) > 0.1 )) {
+     // edit for deadzones
+    if((Math.abs(OI.driver.getY(Hand.kLeft)) > deadzone )) {
       Robot.tankdrive.talon_fl.set(OI.driver.getRawAxis(1) * SPEED);
       Robot.tankdrive.talon_bl.set(OI.driver.getRawAxis(1) * SPEED);
     }
-    if ((Math.abs(OI.driver.getRawAxis(5)) > 0.1 )) {
+    if ((Math.abs(OI.driver.getRawAxis(5)) > deadzone)) {
       Robot.tankdrive.talon_fr.set(OI.driver.getRawAxis(5) * SPEED);
       Robot.tankdrive.talon_br.set(OI.driver.getRawAxis(5) * SPEED);
     }

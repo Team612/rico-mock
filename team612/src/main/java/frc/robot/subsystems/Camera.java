@@ -7,18 +7,22 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+import frc.robot.commands.DefaultCamera;
 
 /**
  * Add your docs here.
  */
-public class Camrea extends Subsystem {
+public class Camera extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+    public static Servo camera_Servo = new Servo(RobotMap.CAM_PORT);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new DefaultCamera());
   }
 }

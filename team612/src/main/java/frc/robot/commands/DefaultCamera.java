@@ -7,22 +7,39 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.OI;
+import frc.robot.Robot;
+import frc.robot.subsystems.Camera;
 
 public class DefaultCamera extends Command {
   public DefaultCamera() {
     // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+    requires(Robot.camera);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    boolean isFront = false;
+  if(OI.driver_button_A.get() == true && isFront == true ){
+    isFront = false;   
+  }
+  if(OI.driver_button_A.get() == true && isFront == false ){
+    isFront = true;
+  }
+   if(isFront) Camera.camera_Servo.set(180);
+   else Camera.camera_Servo.set(-180);
+
+
+
   }
 
   // Make this return true when this Command no longer needs to run execute()

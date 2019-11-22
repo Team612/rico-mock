@@ -11,9 +11,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.DefaultArm;
 import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.Tankdrive;
 
 /**
@@ -26,6 +25,7 @@ import frc.robot.subsystems.Tankdrive;
 public class Robot extends TimedRobot {
   public static Arm arm = new Arm();
   public static Tankdrive tankdrive = new Tankdrive();
+  public static Camera camera = new Camera();
   public static OI m_oi;
 
   Command m_autonomousCommand;
