@@ -14,6 +14,10 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
+  public static int servo1 = 0;
+  // Don't use parantheses to highlight the port number. That's only for objects, not ints and doubles (primitives).
+  // Thus, it's not public static int servo1 = new int (0);
+  
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;

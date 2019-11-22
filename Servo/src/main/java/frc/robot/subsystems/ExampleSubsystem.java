@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 import frc.robot.commands.ExampleCommand;
 
 /**
@@ -16,7 +17,7 @@ import frc.robot.commands.ExampleCommand;
  */
 public class ExampleSubsystem extends Subsystem {
   //Follow template for objects.
-  public Servo servo1 = new Servo(0);
+  public Servo servo1 = new Servo(RobotMap.servo1);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
