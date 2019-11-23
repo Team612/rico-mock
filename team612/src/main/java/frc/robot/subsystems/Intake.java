@@ -24,7 +24,7 @@ public class Intake extends Subsystem {
   
   @Override
   public void initDefaultCommand() {
-    talonIntake.setNeutralMode(NeutralMode.Brake);
+    talonIntake.setNeutralMode(NeutralMode.Coast);
 
     setDefaultCommand(new DefaultIntake());
   }

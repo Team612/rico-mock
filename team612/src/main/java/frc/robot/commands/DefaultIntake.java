@@ -34,8 +34,8 @@ public class DefaultIntake extends Command {
     double value = 0;
     boolean lb = OI.gunner_button_LB.get(), rb = OI.gunner_button_RB.get();
 
-    if (lb) value--;
-    if (rb) value++;
+    if (lb) value++;
+    if (rb) value--;
 
     talonIntake.set(value);
   }
