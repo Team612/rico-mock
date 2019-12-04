@@ -6,11 +6,16 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 import frc.robot.subsystems.Drivetrain;
+
 import frc.robot.subsystems.ServoCamera;
+
+import frc.robot.subsystems.Hatch;
+import frc.robot.subsystems.Intake;
+
 
 public class Robot extends TimedRobot 
 {
-
+    public static final Hatch s_hatch = new Hatch();
     public static final Drivetrain drivetrain = new Drivetrain();
     public static final ServoCamera driver_servo = new ServoCamera();
 
