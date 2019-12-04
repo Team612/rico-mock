@@ -11,12 +11,12 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
-import frc.robot.subsystems.TankDrive;
 
-public class DefaultTank extends Command {
-  public DefaultTank() {
+public class DefaultTankdrive extends Command {
+  double SPEED = 1;
+  public DefaultTankdrive() {
     // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+    requires(Robot.tankdrive);
   }
 
   // Called just before this Command runs the first time
@@ -27,11 +27,28 @@ public class DefaultTank extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("Running Tank Drive");
-    Robot.tank.talon_FL.set( OI.driver.getY(Hand.kLeft));
-    Robot.tank.talon_BL.set( OI.driver.getY(Hand.kLeft));
-    Robot.tank.talon_FR.set( OI.driver.getY(Hand.kRight));
-    Robot.tank.talon_FR.set( OI.driver.getY(Hand.kRight));
+    //Robot.arm.arm_Talon.set(OI.gunner.getY(Hand.kLeft) * SPEED);
+    
+
+    if((Math.abs(OI.driver.getY(Hand.kLeft)) > 0.1 )) {
+      Robot.tankdrive.talon_fl.set(OI.driver.getRawAxis(1) * SPEED);
+      Robot.tankdrive.talon_bl.set(OI.driver.getRawAxis(1) * SPEED);
+    }
+    else{
+      Robot.tankdrive.talon_fl.set(0);
+      Robot.tankdrive.talon_bl.set(0);
+    }
+    if ((Math.abs(OI.driver.getY(Hand.kRight)) > 0.1 )) {
+      Robot.tankdrive.talon_fr.set(OI.driver.getRawAxis(5) * SPEED *-1);
+      Robot.tankdrive.talon_br.set(OI.driver.getRawAxis(5) * SPEED * -1);
+    }
+    else {
+ Robot.tankdrive.talon_fr.set(0);
+      Robot.tankdrive.talon_br.set(0);
+
+   }
+    System.out.println(OI.driver.getY(Hand.kLeft));
+    System.out.println(OI.driver.getY(Hand.kRight));
   }
 
   // Make this return true when this Command no longer needs to run execute()
